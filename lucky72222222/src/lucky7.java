@@ -1,11 +1,15 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class lucky7 {
     public static void main(String[] args) throws Exception {
         
         Random r = new Random();
+        Scanner in = new Scanner(System.in);
 
-        int rahat = 5;
+        System.out.print("Paljonko rahaa haluat peliin? ");
+        int rahat = in.nextInt();
+        in.nextLine();
 
         while (rahat > 0) {
 
@@ -47,9 +51,23 @@ public class lucky7 {
         }
 
         System.out.println("Rahaa jäljellä: " + rahat + " euroa");
-        System.out.println();
+        
+        if (rahat == 0) {
+            break;
+        }
+
+        System.out.println("Haluatko pelata uudestaan? ");
+        System.out.println("Paina Enter pelataksesi uudelleen");
+        System.out.println("Kirjoita e lopettaaksesi.");
+
+        String vastaus = in.nextLine();
+
+        if (vastaus.equals("e")) {
+            break;
+        }
     }
-    System.out.println("Rahat loppu. GAME OVER");
+    System.out.println("Peli päättyi.");
+    System.out.println("Rahaa jäljellä: " + rahat + " euroa");
 
     }
 }
